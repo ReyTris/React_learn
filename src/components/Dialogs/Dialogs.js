@@ -1,34 +1,42 @@
 import React from 'react'
 import s from './Dialogs.module.css'
+import { NavLink } from 'react-router-dom'
+
+
+const DialogItem = (props) => {
+
+    let path = "/dialogs/"+ props.id
+
+    return (
+        <div className={s.dialog + ' ' + s.active}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    )
+}
+
+const Message = (props) => {
+    return <div className={s.message}>{props.message}</div>
+}
+
 
 const Dialogs = (props) => {
     return (
         <div>
             <div className={s.dialogs}>
                 <div className={s.dialogsItems}>
-                    <div className={s.dialog + ' ' + s.active}>
-                        Dimych
-                    </div>
-                    <div className={s.dialog}>
-                        Andrey
-                    </div>
-                    <div className={s.dialog}>
-                        Sveta
-                    </div>
-                    <div className={s.dialog}>
-                        Sasha
-                    </div>
-                    <div className={s.dialog}>
-                        Viktor
-                    </div>
-                    <div className={s.dialog}>
-                        Valera
-                    </div>
+                    <DialogItem name="Dimych" id="1" />
+                    <DialogItem name="Andrey" id="2" />
+                    <DialogItem name="Sveta" id="3" />
+                    <DialogItem name="Viktor" id="4" />
+                    <DialogItem name="Sasha" id="5" />
+                    <DialogItem name="Valera" id="6" />
                 </div>
                 <div className={s.messages}>
-                    <div className={s.message}>Hi</div>
-                    <div className={s.message}>How are you?</div>
-                    <div className={s.message}>Fuck</div>
+                    <Message message="Hi"/>
+                    <Message message="How are you?"/>
+                    <Message message="Fuck"/>
+                    <Message message="Fuck"/>
+                    <Message message="Fuck"/>
                 </div>
 
             </div>
