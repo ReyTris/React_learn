@@ -5,7 +5,21 @@ import { NavLink } from 'react-router-dom'
 
 
 const Message = (props) => {
-    return <div className={s.message}>{props.message}</div>
+
+    let newMessage = React.createRef()
+
+    let addMessage = () => {
+        let text = newMessage.current.value 
+        alert(text)
+    }
+
+    return (
+        <div>
+            <div className={s.message}>{props.message}</div>
+            <textarea ref={newMessage}></textarea>
+            <button onClick={addMessage}>add message</button>
+        </div>
+    )
 }
 
 
